@@ -132,6 +132,13 @@ def service_page(s):
       </div>
       <h2 style="font-size:1.1rem;margin:32px 0 12px;">Related services</h2>
       {related}
+      <p style="margin-top:28px;font-size:.9rem;color:var(--muted);line-height:1.6;">
+        We dispatch from Lipa to
+        <a href="aircon-services-tanauan-batangas.html">Tanauan</a>,
+        <a href="aircon-services-santo-tomas-batangas.html">Santo Tomas</a>,
+        <a href="aircon-services-malvar-batangas.html">Malvar</a>, and
+        <a href="service-area-batangas.html">other Batangas towns</a>.
+      </p>
     </div>
   </div>
 </section>
@@ -151,6 +158,13 @@ def hub_page():
       <a href="{s['file']}" class="pill">View service</a>
     </article>"""
     area = service_area_section().replace('class="reveal"', "")
+    towns_blurb = (
+        '<p style="text-align:center;margin-top:32px;color:var(--muted);font-size:.95rem;">'
+        'We also serve <a href="aircon-services-tanauan-batangas.html">Tanauan</a>, '
+        '<a href="aircon-services-santo-tomas-batangas.html">Santo Tomas</a>, '
+        '<a href="aircon-services-malvar-batangas.html">Malvar</a>, and '
+        '<a href="service-area-batangas.html">more Batangas towns</a>.</p>'
+    )
     return f"""<!DOCTYPE html>
 <html lang="en-PH">
 <head>
@@ -181,6 +195,7 @@ def hub_page():
 <section style="padding:80px 24px;background:var(--surface);">
   <div class="container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">{cards}</div>
 </section>
+{towns_blurb}
 {area}
 </main>
 {FOOTER}
@@ -189,9 +204,13 @@ def hub_page():
 </html>"""
 
 
-root = Path(__file__).parent
-for s in SERVICES:
-    (root / s["file"]).write_text(service_page(s), encoding="utf-8")
+def main():
+    root = Path(__file__).parent
+    for s in SERVICES:
+        (root / s["file"]).write_text(service_page(s), encoding="utf-8")
+    (root / "aircon-services-lipa-batangas.html").write_text(hub_page(), encoding="utf-8")
+    print("generated", len(SERVICES) + 1, "service pages")
 
-(root / "aircon-services-lipa-batangas.html").write_text(hub_page(), encoding="utf-8")
-print("generated", len(SERVICES) + 1, "pages")
+
+if __name__ == "__main__":
+    main()

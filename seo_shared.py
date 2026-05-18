@@ -278,12 +278,32 @@ def faq_details_html():
     return "\n  ".join(blocks)
 
 
+TOWN_HUB_LINKS = [
+    ("Tanauan", "aircon-services-tanauan-batangas.html"),
+    ("Santo Tomas", "aircon-services-santo-tomas-batangas.html"),
+    ("Malvar", "aircon-services-malvar-batangas.html"),
+    ("Mataasnakahoy", "aircon-services-mataasnakahoy-batangas.html"),
+    ("Talisay", "aircon-services-talisay-batangas.html"),
+]
+
+
+def town_hub_links_html():
+    return "".join(
+        f'<a href="{href}" style="display:inline-block;margin:6px 10px 6px 0;padding:10px 16px;border:1px solid #E2E8F0;border-radius:10px;font-size:.9rem;font-weight:500;text-decoration:none;color:var(--brand-dark);">{name}</a>'
+        for name, href in TOWN_HUB_LINKS
+    )
+
+
 def service_area_section():
     other_towns = ", ".join(c for c in AREAS if c != "Lipa City")
+    chips = town_hub_links_html()
     return f'''<section id="service-area" class="reveal" style="padding:80px 24px;background:#fff;">
   <div style="max-width:900px;margin:0 auto;">
     <h2 class="display" style="font-size:1.75rem;font-weight:700;margin-bottom:16px;">Service area — Lipa &amp; Batangas</h2>
-    <p style="color:var(--muted);line-height:1.75;margin-bottom:16px;">CoolPro dispatches aircon technicians from <strong>Lipa City</strong> to {other_towns}, and nearby Batangas barangays.</p>
+    <p style="color:var(--muted);line-height:1.75;margin-bottom:20px;">CoolPro dispatches aircon technicians from <strong>Lipa City</strong> to {other_towns}, and nearby Batangas barangays.</p>
+    <p style="margin-bottom:12px;font-size:.9rem;font-weight:600;color:var(--ink);">Town service pages</p>
+    <div style="margin-bottom:20px;">{chips}</div>
+    <p style="color:var(--muted);line-height:1.75;margin-bottom:8px;"><a href="service-area-batangas.html">View all Batangas service areas →</a></p>
     <p style="color:var(--muted);line-height:1.75;">Not sure if we cover your location? <a href="contact.html">Contact us</a> or <a href="https://m.me/coolproairconlipa" target="_blank" rel="noopener">message on Messenger</a> with your pin or nearest landmark.</p>
   </div>
 </section>'''
@@ -294,6 +314,7 @@ FOOTER = '''<footer class="site-footer" style="background:#000;padding:40px 24px
     <nav aria-label="Footer" style="display:flex;flex-wrap:wrap;gap:12px 20px;justify-content:center;margin-bottom:20px;">
       <a href="./" style="color:#E2E8F0;">Home</a>
       <a href="aircon-services-lipa-batangas.html" style="color:#E2E8F0;">All services</a>
+      <a href="service-area-batangas.html" style="color:#E2E8F0;">Service areas</a>
       <a href="ac-general-cleaning-lipa-batangas.html" style="color:#E2E8F0;">General cleaning</a>
       <a href="ac-chemical-cleaning-lipa-batangas.html" style="color:#E2E8F0;">Chemical cleaning</a>
       <a href="ac-repair-lipa-batangas.html" style="color:#E2E8F0;">Repair</a>
