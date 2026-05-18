@@ -13,6 +13,7 @@ from content_data import (
 from seo_shared import (
     BASE,
     FOOTER,
+    HEAD_COMMON,
     NAV,
     breadcrumb_schema,
     faq_details_html,
@@ -119,9 +120,7 @@ def faq_hub_page():
   <meta property="og:title" content="Aircon FAQ Lipa Batangas | CoolPro">
   <meta property="og:locale" content="en_PH">
   {ld_script(faq_hub_graph())}
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css">
-  <link rel="icon" type="image/png" href="assets/coolpro_logo.png">
+  {HEAD_COMMON}
 </head>
 <body>
 <div id="progress"></div>
@@ -180,9 +179,7 @@ def article_page(article):
   <meta property="og:image" content="{BASE}assets/{article['image']}">
   <meta property="og:locale" content="en_PH">
   {ld_script(article_graph(article))}
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css">
-  <link rel="icon" type="image/png" href="assets/coolpro_logo.png">
+  {HEAD_COMMON}
 </head>
 <body>
 <div id="progress"></div>
@@ -230,9 +227,7 @@ def guides_index_page():
   <meta property="og:url" content="{url}">
   <meta property="og:locale" content="en_PH">
   {ld_script(guides_index_graph())}
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css">
-  <link rel="icon" type="image/png" href="assets/coolpro_logo.png">
+  {HEAD_COMMON}
 </head>
 <body>
 <div id="progress"></div>

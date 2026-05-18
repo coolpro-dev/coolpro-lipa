@@ -21,8 +21,16 @@ def main():
             print(f"Missing {script}", file=sys.stderr)
             sys.exit(1)
         subprocess.check_call([sys.executable, str(path)], cwd=ROOT)
+    for patch in (
+        "patch_index_phase2.py",
+        "patch_index_phase3.py",
+        "patch_index_phase4.py",
+    ):
+        patch_path = ROOT / patch
+        if patch_path.exists():
+            subprocess.check_call([sys.executable, str(patch_path)], cwd=ROOT)
     print("CoolPro pages regenerated.")
-    print("Note: index.html is maintained separately; run patch_index.py after SEO config changes if needed.")
+    print("Note: index.html is patched by phase2–4 scripts; run patch_index.py for one-off SEO schema updates.")
 
 
 if __name__ == "__main__":

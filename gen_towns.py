@@ -4,7 +4,7 @@ from datetime import date
 from pathlib import Path
 
 from gen_pages import SERVICES
-from seo_shared import BASE, FOOTER, NAV, breadcrumb_schema, ld_script
+from seo_shared import BASE, FOOTER, HEAD_COMMON, NAV, breadcrumb_schema, ld_script
 
 LASTMOD = date.today().isoformat()
 SERVICE_AREA_FILE = "service-area-batangas.html"
@@ -277,9 +277,7 @@ def town_page(town):
   <meta property="og:description" content="{town['meta']}">
   <meta property="og:locale" content="en_PH">
   {ld_script(town_hub_graph(town))}
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css">
-  <link rel="icon" type="image/png" href="assets/coolpro_logo.png">
+  {HEAD_COMMON}
 </head>
 <body>
 <div id="progress"></div>
@@ -355,9 +353,7 @@ def service_area_index_page():
   <meta property="og:title" content="Aircon Service Areas Batangas | CoolPro Lipa">
   <meta property="og:locale" content="en_PH">
   {ld_script(service_area_index_graph())}
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css">
-  <link rel="icon" type="image/png" href="assets/coolpro_logo.png">
+  {HEAD_COMMON}
 </head>
 <body>
 <div id="progress"></div>

@@ -2,7 +2,16 @@
 """Regenerate contact.html. Run: python gen_contact.py"""
 from pathlib import Path
 
-from seo_shared import BASE, FOOTER, NAV, contact_page_graph, ld_script, service_area_section
+from seo_shared import (
+    BASE,
+    FOOTER,
+    HEAD_COMMON,
+    NAV,
+    contact_page_graph,
+    gbp_owner_panel,
+    ld_script,
+    service_area_section,
+)
 
 area = service_area_section().replace('class="reveal"', "")
 
@@ -18,9 +27,7 @@ HTML = f"""<!DOCTYPE html>
   <meta property="og:title" content="Contact | CoolPro Aircon Services Lipa">
   <meta property="og:locale" content="en_PH">
   {ld_script(contact_page_graph())}
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css">
-  <link rel="icon" type="image/png" href="assets/coolpro_logo.png">
+  {HEAD_COMMON}
 </head>
 <body>
 <div id="progress"></div>
@@ -51,6 +58,7 @@ HTML = f"""<!DOCTYPE html>
     <iframe title="CoolPro service area — Lipa City Batangas" src="https://maps.google.com/maps?q=Lipa+City,Batangas,Philippines&amp;z=12&amp;output=embed" width="100%" height="300" style="border:0;border-radius:12px" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
   </div>
 </section>
+{gbp_owner_panel()}
 </main>
 {FOOTER}
 <script src="script.js"></script>

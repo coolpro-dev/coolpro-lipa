@@ -266,6 +266,31 @@ def ld_script(data):
     )
 
 
+# --- Phase 4: performance + shared <head> fragments ---
+THEME_COLOR = "#0c4a6e"
+FONT_CSS = (
+    "https://fonts.googleapis.com/css2?"
+    "family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap"
+)
+
+HEAD_FONTS = f"""<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="{FONT_CSS}" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="{FONT_CSS}"></noscript>"""
+
+FAVICON_LINK = '<link rel="icon" type="image/png" href="assets/coolpro_logo.png">'
+STYLESHEET_LINK = '<link rel="stylesheet" href="index.css">'
+THEME_META = f'<meta name="theme-color" content="{THEME_COLOR}">'
+HEAD_COMMON = f"""{THEME_META}
+{HEAD_FONTS}
+{STYLESHEET_LINK}
+{FAVICON_LINK}"""
+
+
+def head_lcp_preload(webp: str = "assets/coolpro_job_1.webp"):
+    return f'<link rel="preload" as="image" type="image/webp" href="{webp}">'
+
+
 def picture_img(jpg: str, alt: str, width: int = 800, height: int = 500, lazy: bool = True, priority: bool = False):
     """Responsive image with WebP source when assets/coolpro_job_N.webp exists."""
     webp = jpg.replace(".jpg", ".webp")
@@ -339,8 +364,15 @@ FOOTER = '''<footer class="site-footer" style="background:#000;padding:40px 24px
       <a href="ac-refrigerant-top-up-lipa-batangas.html" style="color:#E2E8F0;">Refrigerant top-up</a>
       <a href="contact.html" style="color:#E2E8F0;">Contact</a>
     </nav>
-    <p style="text-align:center;margin-bottom:8px;"><strong style="color:#fff;">{name}</strong> · Lipa City, Batangas · <a href="tel:+639485121132" style="color:#7DD3FC;">0948 512 1132</a></p>
-    <p style="text-align:center;color:#64748B;">© 2026 {name}</p>
+    <p class="footer-nap" style="text-align:center;margin-bottom:8px;font-size:.84rem;color:#94A3B8;">
+      <strong style="color:#fff;">{name}</strong><br>
+      Lipa City, Batangas, Philippines ·
+      <a href="tel:+639485121132" style="color:#7DD3FC;">0948 512 1132</a> ·
+      <a href="https://m.me/coolproairconlipa" style="color:#7DD3FC;" target="_blank" rel="noopener">Messenger</a>
+    </p>
+    <p style="text-align:center;color:#64748B;font-size:.8rem;">
+      <a href="sitemap-index.xml" style="color:#64748B;">Sitemap</a> · © 2026 {name}
+    </p>
   </div>
 </footer>
 <a href="https://m.me/coolproairconlipa" target="_blank" class="fab" rel="noopener" title="Messenger"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.908 1.452 5.506 3.732 7.205V22l3.405-1.869C10.012 20.371 10.992 20.5 12 20.5c5.523 0 10-4.145 10-9.257S17.523 2 12 2z"/></svg></a>'''.format(
@@ -366,3 +398,34 @@ NAV = '''<nav class="navbar" aria-label="Primary">
   <li><a href="contact.html">Contact</a></li>
   <li><a href="https://m.me/coolproairconlipa" target="_blank" rel="noopener">Messenger</a></li>
 </ul></div>'''
+
+
+def gbp_owner_panel():
+    """NAP consistency + GBP checklist for Maps / Search alignment."""
+    return f'''<section class="gbp-panel" style="padding:48px 24px;background:#fff;border-top:1px solid #E2E8F0;">
+  <div style="max-width:700px;margin:0 auto;">
+    <h2 class="display" style="font-size:1.25rem;margin-bottom:12px;">Find CoolPro online</h2>
+    <p style="color:var(--muted);font-size:.95rem;line-height:1.7;margin-bottom:20px;">
+      Use the same business name and phone on your website, Google Business Profile, Facebook, and Messenger.
+    </p>
+    <div style="background:var(--surface);border-radius:12px;padding:20px;font-size:.9rem;line-height:1.8;color:var(--ink);">
+      <p><strong>Business name:</strong> {BUSINESS_NAME}</p>
+      <p><strong>Phone:</strong> <a href="tel:+639485121132">0948 512 1132</a></p>
+      <p><strong>Website:</strong> <a href="{BASE}">{BASE.rstrip("/")}</a></p>
+      <p><strong>Service areas:</strong> Lipa City, Tanauan, Santo Tomas, Malvar, and Batangas Province</p>
+      <p><strong>Services:</strong> Aircon cleaning, repair, installation, refrigerant top-up</p>
+    </div>
+    <details style="margin-top:20px;">
+      <summary style="font-weight:600;cursor:pointer;color:var(--brand-dark);">Google Business Profile checklist</summary>
+      <ul style="color:var(--muted);margin-top:12px;padding-left:20px;line-height:1.75;font-size:.9rem;">
+        <li>Primary category: Air conditioning contractor</li>
+        <li>List all services matching <a href="aircon-services-lipa-batangas.html">our services page</a></li>
+        <li>Service areas: same as <a href="service-area-batangas.html">service areas</a></li>
+        <li>Website field: this site homepage URL</li>
+        <li>Weekly posts with job photos; link to <a href="guides-aircon-batangas.html">guides</a></li>
+        <li>Request genuine Google reviews after completed jobs</li>
+        <li>GBP Q&amp;A: mirror <a href="faq-aircon-lipa-batangas.html">FAQ</a> answers</li>
+      </ul>
+    </details>
+  </div>
+</section>'''

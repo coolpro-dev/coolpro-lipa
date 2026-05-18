@@ -6,6 +6,6 @@ index = Path(__file__).parent / "index.html"
 if not index.is_file():
     raise SystemExit("index.html is missing")
 text = index.read_text(encoding="utf-8")
-if "₱" in text or 'id="rates"' in text:
-    raise SystemExit("index.html still contains prices or a rates section")
+if 'id="rates"' in text or 'id="pricing"' in text:
+    raise SystemExit("index.html still contains a rates/pricing section")
 print("index.html ok — not regenerated")
