@@ -266,9 +266,24 @@ def ld_script(data):
     )
 
 
-def faq_details_html():
+def picture_img(jpg: str, alt: str, width: int = 800, height: int = 500, lazy: bool = True, priority: bool = False):
+    """Responsive image with WebP source when assets/coolpro_job_N.webp exists."""
+    webp = jpg.replace(".jpg", ".webp")
+    lazy_attr = "" if priority else ' loading="lazy"'
+    fp = ' fetchpriority="high"' if priority else ""
+    return (
+        f'<picture class="content-picture">'
+        f'<source type="image/webp" srcset="assets/{webp}">'
+        f'<img src="assets/{jpg}" alt="{escape(alt)}" width="{width}" height="{height}" '
+        f'decoding="async" style="width:100%;border-radius:12px;object-fit:cover;"'
+        f"{lazy_attr}{fp}>"
+        f"</picture>"
+    )
+
+
+def faq_details_html(items=None):
     blocks = []
-    for item in FAQ_ITEMS:
+    for item in items or FAQ_ITEMS:
         blocks.append(
             f'<details style="padding:16px 0;border-bottom:1px solid #E2E8F0;">'
             f"<summary>{escape(item['q'])}</summary>"
@@ -315,6 +330,8 @@ FOOTER = '''<footer class="site-footer" style="background:#000;padding:40px 24px
       <a href="./" style="color:#E2E8F0;">Home</a>
       <a href="aircon-services-lipa-batangas.html" style="color:#E2E8F0;">All services</a>
       <a href="service-area-batangas.html" style="color:#E2E8F0;">Service areas</a>
+      <a href="faq-aircon-lipa-batangas.html" style="color:#E2E8F0;">FAQ</a>
+      <a href="guides-aircon-batangas.html" style="color:#E2E8F0;">Guides</a>
       <a href="ac-general-cleaning-lipa-batangas.html" style="color:#E2E8F0;">General cleaning</a>
       <a href="ac-chemical-cleaning-lipa-batangas.html" style="color:#E2E8F0;">Chemical cleaning</a>
       <a href="ac-repair-lipa-batangas.html" style="color:#E2E8F0;">Repair</a>
@@ -336,6 +353,7 @@ NAV = '''<nav class="navbar" aria-label="Primary">
   <ul class="nav-links">
     <li><a href="./#services">Services</a></li>
     <li><a href="aircon-services-lipa-batangas.html">All Services</a></li>
+    <li><a href="guides-aircon-batangas.html">Guides</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <a href="https://m.me/coolproairconlipa" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book on Messenger</a>
@@ -344,6 +362,7 @@ NAV = '''<nav class="navbar" aria-label="Primary">
 <div class="mobile-menu"><ul>
   <li><a href="./#services">Services</a></li>
   <li><a href="aircon-services-lipa-batangas.html">All Services</a></li>
+  <li><a href="guides-aircon-batangas.html">Guides</a></li>
   <li><a href="contact.html">Contact</a></li>
   <li><a href="https://m.me/coolproairconlipa" target="_blank" rel="noopener">Messenger</a></li>
 </ul></div>'''

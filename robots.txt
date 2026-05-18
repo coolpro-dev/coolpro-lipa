@@ -7,5 +7,8 @@ Disallow: /gen_contact.py
 Disallow: /generate_pages.py
 Disallow: /seo_shared.py
 Disallow: /gen_towns.py
+Disallow: /gen_content.py
+Disallow: /gen_images.py
+Disallow: /content_data.py
 
 Sitemap: https://coolpro-dev.github.io/coolpro-lipa/sitemap-index.xml

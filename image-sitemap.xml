@@ -3,6 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://coolpro-dev.github.io/coolpro-lipa/</loc>
+    <lastmod>2026-05-18</lastmod>
     <image:image>
       <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_logo.png</image:loc>
       <image:title>CoolPro Air Solutions logo</image:title>
@@ -12,24 +13,276 @@
       <image:title>CoolPro aircon installation and cleaning Lipa Batangas</image:title>
     </image:image>
     <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_1.webp</image:loc>
+      <image:title>CoolPro aircon installation and cleaning Lipa Batangas (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/index.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_1.jpg</image:loc>
+      <image:title>CoolPro aircon service Lipa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_1.webp</image:loc>
+      <image:title>CoolPro aircon service Lipa (WebP)</image:title>
+    </image:image>
+    <image:image>
       <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.jpg</image:loc>
-      <image:title>CoolPro split-type aircon general cleaning</image:title>
+      <image:title>Split-type general cleaning Lipa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.webp</image:loc>
+      <image:title>Split-type general cleaning Lipa (WebP)</image:title>
     </image:image>
     <image:image>
       <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_3.jpg</image:loc>
-      <image:title>Window aircon before and after chemical cleaning</image:title>
+      <image:title>Chemical cleaning window unit</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_3.webp</image:loc>
+      <image:title>Chemical cleaning window unit (WebP)</image:title>
     </image:image>
     <image:image>
       <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_4.jpg</image:loc>
-      <image:title>CoolPro outdoor AC installation service</image:title>
+      <image:title>Outdoor AC installation</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_4.webp</image:loc>
+      <image:title>Outdoor AC installation (WebP)</image:title>
     </image:image>
     <image:image>
       <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_5.jpg</image:loc>
-      <image:title>CoolPro aircon service team Lipa</image:title>
+      <image:title>CoolPro service team</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_5.webp</image:loc>
+      <image:title>CoolPro service team (WebP)</image:title>
     </image:image>
     <image:image>
       <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_6.jpg</image:loc>
-      <image:title>CoolPro aircon cleaning and installation</image:title>
+      <image:title>Aircon cleaning and installation</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_6.webp</image:loc>
+      <image:title>Aircon cleaning and installation (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/ac-general-cleaning-lipa-batangas.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.jpg</image:loc>
+      <image:title>General cleaning split-type Lipa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.webp</image:loc>
+      <image:title>General cleaning split-type Lipa (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/ac-chemical-cleaning-lipa-batangas.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_3.jpg</image:loc>
+      <image:title>Chemical cleaning window aircon</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_3.webp</image:loc>
+      <image:title>Chemical cleaning window aircon (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/ac-repair-lipa-batangas.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_1.jpg</image:loc>
+      <image:title>Aircon repair service Lipa Batangas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_1.webp</image:loc>
+      <image:title>Aircon repair service Lipa Batangas (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/ac-installation-lipa-batangas.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_4.jpg</image:loc>
+      <image:title>Outdoor aircon installation Lipa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_4.webp</image:loc>
+      <image:title>Outdoor aircon installation Lipa (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/ac-refrigerant-top-up-lipa-batangas.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_4.jpg</image:loc>
+      <image:title>Refrigerant service outdoor unit</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_4.webp</image:loc>
+      <image:title>Refrigerant service outdoor unit (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/general-vs-chemical-aircon-cleaning-batangas.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_3.jpg</image:loc>
+      <image:title>Window aircon chemical cleaning before and after — CoolPro Batangas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_3.webp</image:loc>
+      <image:title>Window aircon chemical cleaning before and after — CoolPro Batangas (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/aircon-not-cooling-troubleshooting-batangas.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_1.jpg</image:loc>
+      <image:title>CoolPro aircon repair and installation — Lipa Batangas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_1.webp</image:loc>
+      <image:title>CoolPro aircon repair and installation — Lipa Batangas (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/split-type-aircon-cleaning-guide-batangas.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.jpg</image:loc>
+      <image:title>CoolPro split-type general cleaning with catch bag — Lipa Batangas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.webp</image:loc>
+      <image:title>CoolPro split-type general cleaning with catch bag — Lipa Batangas (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/inverter-aircon-maintenance-philippines.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.jpg</image:loc>
+      <image:title>Split-type aircon maintenance service — CoolPro Lipa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.webp</image:loc>
+      <image:title>Split-type aircon maintenance service — CoolPro Lipa (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/when-to-refrigerant-top-up-aircon-batangas.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_4.jpg</image:loc>
+      <image:title>CoolPro outdoor aircon unit service — Batangas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_4.webp</image:loc>
+      <image:title>CoolPro outdoor aircon unit service — Batangas (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/faq-aircon-lipa-batangas.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.jpg</image:loc>
+      <image:title>CoolPro aircon FAQ Lipa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.webp</image:loc>
+      <image:title>CoolPro aircon FAQ Lipa (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/guides-aircon-batangas.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_1.jpg</image:loc>
+      <image:title>CoolPro aircon guides Batangas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_1.webp</image:loc>
+      <image:title>CoolPro aircon guides Batangas (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/service-area-batangas.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_5.jpg</image:loc>
+      <image:title>CoolPro Batangas service areas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_5.webp</image:loc>
+      <image:title>CoolPro Batangas service areas (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/aircon-services-tanauan-batangas.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.jpg</image:loc>
+      <image:title>Aircon services Tanauan Batangas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.webp</image:loc>
+      <image:title>Aircon services Tanauan Batangas (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/aircon-services-santo-tomas-batangas.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.jpg</image:loc>
+      <image:title>Aircon services Santo Tomas Batangas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.webp</image:loc>
+      <image:title>Aircon services Santo Tomas Batangas (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/aircon-services-malvar-batangas.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.jpg</image:loc>
+      <image:title>Aircon services Malvar Batangas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.webp</image:loc>
+      <image:title>Aircon services Malvar Batangas (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/aircon-services-mataasnakahoy-batangas.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.jpg</image:loc>
+      <image:title>Aircon services Mataasnakahoy Batangas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.webp</image:loc>
+      <image:title>Aircon services Mataasnakahoy Batangas (WebP)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/aircon-services-talisay-batangas.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.jpg</image:loc>
+      <image:title>Aircon services Talisay Batangas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.webp</image:loc>
+      <image:title>Aircon services Talisay Batangas (WebP)</image:title>
     </image:image>
   </url>
 </urlset>

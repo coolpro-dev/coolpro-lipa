@@ -7,6 +7,7 @@ from seo_shared import (
     NAV,
     hub_page_graph,
     ld_script,
+    picture_img,
     service_area_section,
     service_schema,
 )
@@ -14,6 +15,8 @@ from seo_shared import (
 SERVICES = [
     {
         "file": "ac-general-cleaning-lipa-batangas.html",
+        "hero_image": "coolpro_job_2.jpg",
+        "hero_alt": "CoolPro split-type aircon general cleaning — Lipa Batangas",
         "title": "Aircon General Cleaning Lipa Batangas | CoolPro",
         "h1": "Aircon General Cleaning in Lipa Batangas",
         "desc": "Routine split-type and window AC cleaning in Lipa City and Batangas — filters, coils, drain line, and exterior wash.",
@@ -27,6 +30,8 @@ SERVICES = [
     },
     {
         "file": "ac-chemical-cleaning-lipa-batangas.html",
+        "hero_image": "coolpro_job_3.jpg",
+        "hero_alt": "Window aircon chemical cleaning — CoolPro Batangas",
         "title": "Aircon Chemical Cleaning Lipa Batangas | CoolPro",
         "h1": "Aircon Chemical Cleaning in Lipa Batangas",
         "desc": "Deep chemical flush for units with weak cooling, mold, odor, or heavy buildup.",
@@ -40,6 +45,8 @@ SERVICES = [
     },
     {
         "file": "ac-repair-lipa-batangas.html",
+        "hero_image": "coolpro_job_1.jpg",
+        "hero_alt": "CoolPro aircon repair and troubleshooting — Lipa Batangas",
         "title": "Aircon Repair Lipa Batangas | CoolPro",
         "h1": "Aircon Repair & Troubleshooting in Lipa Batangas",
         "desc": "Diagnose not cooling, leaking water, strange noise, or unit not starting — parts quoted before work.",
@@ -53,6 +60,8 @@ SERVICES = [
     },
     {
         "file": "ac-installation-lipa-batangas.html",
+        "hero_image": "coolpro_job_4.jpg",
+        "hero_alt": "CoolPro outdoor aircon installation — Lipa Batangas",
         "title": "Aircon Installation Lipa Batangas | CoolPro",
         "h1": "Aircon Installation in Lipa Batangas",
         "desc": "Split-type installation and relocation labor in Lipa and Batangas (AC unit sold separately).",
@@ -66,6 +75,8 @@ SERVICES = [
     },
     {
         "file": "ac-refrigerant-top-up-lipa-batangas.html",
+        "hero_image": "coolpro_job_4.jpg",
+        "hero_alt": "CoolPro refrigerant and outdoor unit service — Batangas",
         "title": "Refrigerant Top-Up Lipa Batangas | CoolPro",
         "h1": "Refrigerant Top-Up in Lipa Batangas",
         "desc": "Freon recharge after leak check when applicable — for units that still run but cool poorly.",
@@ -103,7 +114,7 @@ def service_page(s):
   <meta property="og:url" content="{url}">
   <meta property="og:title" content="{s['title']}">
   <meta property="og:description" content="{s['desc']}">
-  <meta property="og:image" content="{BASE}assets/coolpro_service_showcase.svg">
+  <meta property="og:image" content="{BASE}assets/{s['hero_image']}">
   <meta property="og:locale" content="en_PH">
   {schema}
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -122,7 +133,8 @@ def service_page(s):
     <h1 class="display" style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:16px;">{s['h1']}</h1>
     <p style="color:var(--muted);font-size:1.05rem;line-height:1.7;margin-bottom:32px;">{s['desc']}</p>
     <div style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:32px;box-shadow:var(--card-shadow);">
-      <img src="assets/coolpro_service_showcase.svg" alt="{s['h1']}" width="800" height="220" style="width:100%;max-height:220px;object-fit:cover;border-radius:12px;margin-bottom:24px;background:#0c4a6e;">
+      <div style="margin-bottom:24px;max-height:280px;overflow:hidden;border-radius:12px;">{picture_img(s['hero_image'], s['hero_alt'], width=800, height=280)}</div>
+      <p style="font-size:.85rem;margin:-12px 0 20px;"><a href="guides-aircon-batangas.html">Guides</a> · <a href="faq-aircon-lipa-batangas.html">FAQ</a></p>
       <p style="font-size:.95rem;color:var(--muted);margin-bottom:16px;">Message us on Messenger or WhatsApp with your AC type, HP, and issue — we&apos;ll confirm scope before your visit.</p>
       <ul style="color:var(--muted);line-height:1.8;padding-left:20px;margin-bottom:28px;">{bullets}</ul>
       <div style="display:flex;flex-wrap:wrap;gap:12px;">
@@ -163,7 +175,8 @@ def hub_page():
         'We also serve <a href="aircon-services-tanauan-batangas.html">Tanauan</a>, '
         '<a href="aircon-services-santo-tomas-batangas.html">Santo Tomas</a>, '
         '<a href="aircon-services-malvar-batangas.html">Malvar</a>, and '
-        '<a href="service-area-batangas.html">more Batangas towns</a>.</p>'
+        '<a href="service-area-batangas.html">more Batangas towns</a>. '
+        '<a href="guides-aircon-batangas.html">Guides</a> · <a href="faq-aircon-lipa-batangas.html">FAQ</a>.</p>'
     )
     return f"""<!DOCTYPE html>
 <html lang="en-PH">

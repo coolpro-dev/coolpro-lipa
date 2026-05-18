@@ -8,7 +8,14 @@ ROOT = Path(__file__).parent
 
 
 def main():
-    for script in ("gen_index.py", "gen_pages.py", "gen_contact.py", "gen_towns.py"):
+    for script in (
+        "gen_index.py",
+        "gen_pages.py",
+        "gen_contact.py",
+        "gen_towns.py",
+        "gen_content.py",
+        "gen_images.py",
+    ):
         path = ROOT / script
         if not path.exists():
             print(f"Missing {script}", file=sys.stderr)
