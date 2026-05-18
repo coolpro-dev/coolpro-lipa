@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://coolpro-dev.github.io/coolpro-lipa/</loc>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_logo.png</image:loc>
+      <image:title>CoolPro Air Solutions logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_1.jpg</image:loc>
+      <image:title>CoolPro aircon installation and cleaning Lipa Batangas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_2.jpg</image:loc>
+      <image:title>CoolPro split-type aircon general cleaning</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_3.jpg</image:loc>
+      <image:title>Window aircon before and after chemical cleaning</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_4.jpg</image:loc>
+      <image:title>CoolPro outdoor AC installation service</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_5.jpg</image:loc>
+      <image:title>CoolPro aircon service team Lipa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpro-dev.github.io/coolpro-lipa/assets/coolpro_job_6.jpg</image:loc>
+      <image:title>CoolPro aircon cleaning and installation</image:title>
+    </image:image>
+  </url>
+</urlset>

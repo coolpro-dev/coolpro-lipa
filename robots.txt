@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /gen_index.py
+Disallow: /gen_pages.py
+Disallow: /gen_contact.py
+Disallow: /generate_pages.py
+Disallow: /seo_shared.py
+
+Sitemap: https://coolpro-dev.github.io/coolpro-lipa/sitemap-index.xml

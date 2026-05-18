@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="CoolPro aircon service Lipa Batangas">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c4a6e"/>
+      <stop offset="100%" stop-color="#082f49"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect x="120" y="80" width="360" height="120" rx="12" fill="#e0f2fe" opacity=".95"/>
+  <rect x="140" y="100" width="320" height="16" rx="4" fill="#0ea5e9"/>
+  <rect x="140" y="130" width="200" height="10" rx="3" fill="#7dd3fc"/>
+  <rect x="140" y="150" width="260" height="10" rx="3" fill="#bae6fd"/>
+  <text x="400" y="320" text-anchor="middle" fill="#7dd3fc" font-family="system-ui,sans-serif" font-size="28" font-weight="700">CoolPro Air Solutions</text>
+  <text x="400" y="360" text-anchor="middle" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="18">AC Cleaning · Repair · Install · Lipa &amp; Batangas</text>
+</svg>
