@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/ac-general-cleaning-lipa-batangas.html", "destination": "/services/ac-general-cleaning", "permanent": true },
+    { "source": "/ac-chemical-cleaning-lipa-batangas.html", "destination": "/services/ac-chemical-cleaning", "permanent": true },
+    { "source": "/ac-repair-lipa-batangas.html", "destination": "/services/ac-repair", "permanent": true },
+    { "source": "/ac-installation-lipa-batangas.html", "destination": "/services/ac-installation", "permanent": true },
+    { "source": "/ac-refrigerant-top-up-lipa-batangas.html", "destination": "/services/ac-refrigerant-top-up", "permanent": true },
+    { "source": "/aircon-services-lipa-batangas.html", "destination": "/services", "permanent": true },
+    { "source": "/faq-aircon-lipa-batangas.html", "destination": "/#faq", "permanent": true },
+    { "source": "/guides-aircon-batangas.html", "destination": "/services", "permanent": true },
+    { "source": "/aircon-services-:town-batangas.html", "destination": "/services", "permanent": true },
+    { "source": "/service-area-batangas.html", "destination": "/contact", "permanent": true }
+  ]
+}
