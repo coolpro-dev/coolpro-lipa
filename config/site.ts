@@ -30,7 +30,7 @@ export const site = {
   facebook: "https://www.facebook.com/share/1Dh5ZkH4kk/",
   maps: "https://maps.google.com/?q=Lipa+City+Batangas+Philippines",
 
-  logo: "/assets/coolpro_logo.svg",
+  logo: "/assets/coolpro_logo.png",
   ogImage: "/assets/coolpro_service_showcase.svg",
 
   geo: { latitude: 13.9411, longitude: 121.1631 },
