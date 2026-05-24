@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import type { AirconLoadInputs } from "@/lib/hvac-engine/types";
 
@@ -11,6 +11,8 @@ type Props = {
     totalHp: number;
     totalTR: number;
     warnings?: string[];
+    bestMatch?: string;
+    alternatives?: string[];
   };
   roomMeta: {
     roomLengthM: number;
@@ -26,6 +28,16 @@ type Props = {
   emphasizeSchedule?: boolean;
 };
 
+function generateFormToken(): string {
+  const timestamp = Date.now();
+  const random = Math.random().toString(36).substring(2, 15);
+  return btoa(`${timestamp}:${random}`);
+}
+
+function generateIdempotencyKey(): string {
+  return `${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
+}
+
 export function LeadCaptureForm({
   calculationInputs,
   calculationResult,
@@ -35,8 +47,15 @@ export function LeadCaptureForm({
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
+  const [formToken, setFormToken] = useState<string>("");
+  const [idempotencyKey, setIdempotencyKey] = useState<string>("");
 
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
+  useEffect(() => {
+    setFormToken(generateFormToken());
+    setIdempotencyKey(generateIdempotencyKey());
+  }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -44,6 +63,14 @@ export function LeadCaptureForm({
     setErrorMsg("");
 
     const fd = new FormData(e.currentTarget);
+
+    const honeypotValue = fd.get("website") as string;
+    if (honeypotValue) {
+      setErrorMsg("Submission blocked.");
+      setStatus("error");
+      return;
+    }
+
     const turnstileToken =
       (fd.get("cf-turnstile-response") as string) ||
       (document.querySelector('[name="cf-turnstile-response"]') as HTMLInputElement)?.value;
@@ -65,6 +92,9 @@ export function LeadCaptureForm({
       turnstileToken: turnstileToken || undefined,
       deviceType: /Mobi|Android/i.test(navigator.userAgent) ? "mobile" : "desktop",
       userAgent: navigator.userAgent.slice(0, 500),
+      _hp: honeypotValue || undefined,
+      _ft: formToken || undefined,
+      _ik: idempotencyKey || undefined,
     };
 
     try {
@@ -108,6 +138,28 @@ export function LeadCaptureForm({
       <p className="text-sm text-muted">
         We&apos;ll use your calculation results — no need to re-enter HP or room size.
       </p>
+
+      {/* Honeypot field - hidden from users, visible to bots */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          opacity: 0,
+          height: 0,
+          overflow: "hidden",
+          pointerEvents: "none",
+        }}
+      >
+        <label htmlFor="website">Leave this field empty</label>
+        <input
+          type="text"
+          id="website"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
 
       <label className="block">
         <span className="text-sm font-medium">Name *</span>

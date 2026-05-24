@@ -29,7 +29,7 @@ export function CalculatorPage() {
 
   const summary = result
     ? {
-        hp: result.load.totalHp,
+        hp: result.load.recommendation.bestMatch.hp,
         btu: result.load.totalBtu,
         roomType: form.roomTypeLabel,
       }
@@ -64,8 +64,6 @@ export function CalculatorPage() {
               <>
                 <ResultsPanel
                   load={result.load}
-                  sizing={result.sizing}
-                  primary={result.primary}
                 />
                 <CtaBar
                   summary={summary}
@@ -79,6 +77,10 @@ export function CalculatorPage() {
                     totalHp: result.load.totalHp,
                     totalTR: result.load.totalTR,
                     warnings: result.load.warnings,
+                    bestMatch: result.load.recommendation.bestMatch.systemLabel,
+                    alternatives: result.load.recommendation.alternativeOptions.map(
+                      (option) => option.systemLabel,
+                    ),
                   }}
                   roomMeta={{
                     roomLengthM: parseFloat(form.lengthM),

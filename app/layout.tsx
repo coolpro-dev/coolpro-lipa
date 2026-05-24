@@ -25,6 +25,13 @@ export const metadata: Metadata = {
     template: `%s | ${site.shortName}`,
   },
   description: site.description,
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/assets/coolpro_logo.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180" }],
+  },
   openGraph: {
     type: "website",
     locale: "en_PH",

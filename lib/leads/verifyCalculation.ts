@@ -1,4 +1,4 @@
-import { calculateAirconLoad } from "@/lib/hvac-engine/calculator-core.js";
+import { calculateAirconLoad } from "@/lib/hvac-engine/airconLoadEngine";
 import type { AirconLoadInputs } from "@/lib/hvac-engine/types";
 
 const TOLERANCE = 0.02;

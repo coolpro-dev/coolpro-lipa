@@ -1,12 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { calculateAirconLoad } from "@/lib/hvac-engine/calculator-core.js";
+import { calculateAirconLoad } from "@/lib/hvac-engine/airconLoadEngine";
 import {
+  buildInstallationConstraints,
   buildEngineInputs,
+  buildRecommendationPreferences,
   type CalculatorFormState,
 } from "@/lib/hvac-engine/mapInputs";
-import { getSizingAdvice } from "@/lib/hvac-engine/sizingAdvice";
 import { trackEvent } from "@/lib/analytics";
 
 const defaultForm: CalculatorFormState = {
@@ -20,6 +21,10 @@ const defaultForm: CalculatorFormState = {
   windows: "1",
   electronics: "0",
   hasKitchen: false,
+  budgetPreference: "balanced",
+  noisePreference: "quiet",
+  energyPreference: "important",
+  installationConstraint: "standard",
 };
 
 export function useCalculator() {
@@ -44,10 +49,19 @@ export function useCalculator() {
 
     try {
       const inputs = buildEngineInputs(form);
-      const load = calculateAirconLoad(inputs);
-      const sizing = getSizingAdvice(load.totalBtu, load.totalHp);
-      const primary = load.recommendedSystemOptions[0];
-      return { inputs, load, sizing, primary };
+      const preferences = buildRecommendationPreferences(form);
+      const installationConstraints = buildInstallationConstraints(form);
+      const load = calculateAirconLoad(inputs, {
+        preferences,
+        installationConstraints,
+      });
+      return {
+        inputs,
+        preferences,
+        installationConstraints,
+        load,
+        primary: load.recommendation.bestMatch,
+      };
     } catch {
       return null;
     }

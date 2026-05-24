@@ -1,63 +1,82 @@
 "use client";
 
-import type { SizingAdvice } from "@/lib/hvac-engine/sizingAdvice";
-
-type LoadResult = {
-  totalBtu: number;
-  totalHp: number;
-  totalTR: number;
-  projectClassification: { scaleLabel: string; applicationType: string };
-  warnings: string[];
-  contractorNotes: string[];
-  recommendedSystemOptions: Array<{ systemLabel: string; recommendedUseCase: string }>;
-};
+import type { AirconLoadResult } from "@/lib/hvac-engine/types";
 
 type Props = {
-  load: LoadResult;
-  sizing: SizingAdvice;
-  primary?: { systemLabel: string; recommendedUseCase: string };
+  load: AirconLoadResult;
 };
 
-export function ResultsPanel({ load, sizing, primary }: Props) {
-  const sizingColors = {
-    ok: "bg-emerald-50 text-emerald-800 border-emerald-200",
-    undersized: "bg-amber-50 text-amber-900 border-amber-200",
-    oversized: "bg-orange-50 text-orange-900 border-orange-200",
-  };
+function formatBtu(value: number): string {
+  return `${Math.round(value).toLocaleString()} BTU/hr`;
+}
+
+export function ResultsPanel({ load }: Props) {
+  const { bestMatch, alternativeOptions, explanationText } = load.recommendation;
 
   return (
     <div className="space-y-4" id="calc-results">
-      <div className="grid grid-cols-2 gap-3">
-        <div className="rounded-xl bg-brand text-white p-4 text-center">
-          <p className="text-xs uppercase tracking-wide opacity-80">Recommended</p>
-          <p className="display text-3xl font-bold">{load.totalHp} HP</p>
+      <div className="rounded-xl bg-slate-100 p-4">
+        <p className="text-xs uppercase tracking-wide text-muted">Cooling Requirement</p>
+        <p className="display text-3xl font-bold text-brand-dark">{formatBtu(load.totalBtu)}</p>
+        <p className="text-sm text-muted mt-1">
+          Heat load only. Product type is ranked separately using your room use and preferences.
+        </p>
+      </div>
+
+      <div className="rounded-xl border border-brand/20 bg-brand/5 p-4">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h3 className="display font-semibold text-brand-dark">Best Match</h3>
+            <p className="font-semibold mt-1 text-lg">{bestMatch.systemLabel}</p>
+            <p className="text-sm text-muted">{bestMatch.capacityLabel}</p>
+          </div>
+          <div className="rounded-full bg-white px-3 py-1 text-sm font-semibold text-brand-dark">
+            {bestMatch.score}% fit
+          </div>
         </div>
-        <div className="rounded-xl bg-slate-100 p-4 text-center">
-          <p className="text-xs uppercase tracking-wide text-muted">Estimated load</p>
-          <p className="display text-2xl font-bold text-brand-dark">
-            {Math.round(load.totalBtu).toLocaleString()}
-          </p>
-          <p className="text-xs text-muted">BTU/hr</p>
+        <div className="mt-3">
+          <p className="text-sm font-medium">Reason:</p>
+          <ul className="mt-1 text-sm text-muted list-disc pl-5 space-y-1">
+            {explanationText.map((reason) => (
+              <li key={reason}>{reason}</li>
+            ))}
+          </ul>
         </div>
       </div>
 
-      <div className={`rounded-lg border p-3 text-sm ${sizingColors[sizing.status]}`}>
-        <p className="font-semibold capitalize">{sizing.status === "ok" ? "Sizing check" : sizing.status}</p>
-        <p className="mt-1">{sizing.message}</p>
-      </div>
-
-      {primary && (
+      <div className="grid sm:grid-cols-2 gap-3">
         <div className="rounded-xl border border-slate-200 p-4">
-          <h3 className="display font-semibold text-brand-dark">Suggested AC type</h3>
-          <p className="font-medium mt-1">{primary.systemLabel}</p>
-          <p className="text-sm text-muted mt-1">{primary.recommendedUseCase}</p>
+          <h3 className="display font-semibold text-brand-dark">Power Estimate</h3>
+          <p className="display text-2xl font-bold mt-1">{bestMatch.estimatedMonthlyKwh} kWh/mo</p>
+          <p className="text-sm text-muted mt-1">Estimated from capacity, system efficiency, and typical usage hours.</p>
         </div>
-      )}
+        <div className="rounded-xl border border-slate-200 p-4">
+          <h3 className="display font-semibold text-brand-dark">Cooldown Performance</h3>
+          <p className="text-sm text-muted mt-1">{bestMatch.cooldownPerformance}</p>
+        </div>
+      </div>
+
+      <div className="rounded-xl border border-slate-200 p-4">
+        <h3 className="display font-semibold text-brand-dark">Alternative Options</h3>
+        <ul className="mt-2 space-y-2 text-sm">
+          {alternativeOptions.map((option) => (
+            <li key={option.systemId} className="flex items-start justify-between gap-3">
+              <span>
+                <span className="font-medium">{option.systemLabel}</span>
+                <span className="block text-muted">{option.capacityLabel}</span>
+              </span>
+              <span className="text-xs rounded-full bg-slate-100 px-2 py-1 text-muted">
+                {option.score}% fit
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
 
       <div className="rounded-xl border border-slate-200 p-4">
         <h3 className="display font-semibold text-brand-dark">Room assessment</h3>
         <p className="text-sm mt-1">
-          <strong>{load.projectClassification.scaleLabel}</strong> —{" "}
+          <strong>{load.projectClassification.scaleLabel}</strong> -{" "}
           {load.projectClassification.applicationType.replace("_", " ")} use (~{load.totalTR} TR).
         </p>
         {load.warnings.length > 0 && (
@@ -68,9 +87,31 @@ export function ResultsPanel({ load, sizing, primary }: Props) {
           </ul>
         )}
         <p className="text-xs text-muted mt-3">
-          Includes 15% safety buffer. Final sizing requires an on-site survey.
+          Confidence level: {load.heatLoad.confidenceScore}%. Includes a tropical safety buffer.
         </p>
       </div>
+
+      <details className="rounded-xl border border-slate-200 p-4 bg-surface">
+        <summary className="display font-semibold cursor-pointer">Calculation and recommendation trace</summary>
+        <div className="mt-3 space-y-3">
+          <div>
+            <p className="text-sm font-medium">How BTU was derived</p>
+            <ul className="mt-1 text-sm text-muted list-disc pl-5 space-y-1">
+              {load.heatLoad.adjustmentBreakdown.trace.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-sm font-medium">Why recommendations ranked this way</p>
+            <ul className="mt-1 text-sm text-muted list-disc pl-5 space-y-1">
+              {load.recommendation.trace.slice(0, 4).map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </details>
     </div>
   );
 }

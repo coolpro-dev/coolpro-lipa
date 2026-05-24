@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { calculateAirconLoad } from "./calculator-core.js";
+import { calculateAirconLoad } from "./airconLoadEngine";
+import { calculateHeatLoad } from "./heatLoadEngine";
 import { buildEngineInputs } from "./mapInputs";
+import { recommendAcSystems } from "./recommendationEngine";
 import { getSizingAdvice } from "./sizingAdvice";
 
 describe("calculateAirconLoad", () => {
@@ -18,6 +20,7 @@ describe("calculateAirconLoad", () => {
     expect(result.totalBtu).toBeGreaterThan(0);
     expect(result.totalHp).toBeGreaterThan(0);
     expect(result.recommendedSystemOptions.length).toBeGreaterThan(0);
+    expect(result.recommendation.bestMatch.systemId).toBe("split_inverter");
   });
 
   it("matches form mapper for 4x5m bedroom", () => {
@@ -32,6 +35,10 @@ describe("calculateAirconLoad", () => {
       windows: "1",
       electronics: "0",
       hasKitchen: false,
+      budgetPreference: "balanced",
+      noisePreference: "quiet",
+      energyPreference: "important",
+      installationConstraint: "standard",
     });
     const result = calculateAirconLoad(inputs);
     expect(result.totalHp).toBeCloseTo(result.totalBtu / 9000, 2);
@@ -53,6 +60,54 @@ describe("calculateAirconLoad", () => {
       insulation: "average",
     });
     expect(sunny.totalBtu).toBeGreaterThan(base.totalBtu);
+  });
+});
+
+describe("calculateHeatLoad", () => {
+  it("returns only cooling-load data", () => {
+    const result = calculateHeatLoad({
+      areaSqm: 20,
+      sunExposure: "medium",
+      windowRatio: "low",
+      roomType: "bedroom",
+      insulation: "average",
+    });
+
+    expect(result.requiredBtu).toBeGreaterThan(0);
+    expect(result.confidenceScore).toBeGreaterThan(0);
+    expect(result).not.toHaveProperty("recommendedSystemOptions");
+  });
+});
+
+describe("recommendAcSystems", () => {
+  it("supports multiple compatible systems for a normal bedroom load", () => {
+    const heatLoad = calculateHeatLoad({
+      areaSqm: 20,
+      sunExposure: "medium",
+      windowRatio: "low",
+      roomType: "bedroom",
+      insulation: "average",
+    });
+
+    const result = recommendAcSystems({
+      heatLoad,
+      inputs: {
+        areaSqm: 20,
+        roomType: "bedroom",
+        sunExposure: "medium",
+        windowRatio: "low",
+        insulation: "average",
+      },
+      preferences: {
+        budget: "balanced",
+        noise: "quiet",
+        energy: "important",
+      },
+    });
+
+    expect(result.possibleSystems.length).toBeGreaterThan(1);
+    expect(result.rankedRecommendations[0].systemId).toBe("split_inverter");
+    expect(result.possibleSystems.some((system) => system.systemId === "window_type")).toBe(true);
   });
 });
 

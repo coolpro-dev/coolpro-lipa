@@ -1,4 +1,14 @@
-import type { AirconLoadInputs, Insulation, RoomType, SunExposure } from "./types";
+import type {
+  AirconLoadInputs,
+  BudgetPreference,
+  EnergyPreference,
+  InstallationConstraints,
+  Insulation,
+  NoisePreference,
+  RecommendationPreferences,
+  RoomType,
+  SunExposure,
+} from "./types";
 
 export const ROOM_TYPE_OPTIONS: Record<string, RoomType> = {
   Bedroom: "bedroom",
@@ -37,6 +47,10 @@ export type CalculatorFormState = {
   hasKitchen: boolean;
   floorLevel?: string;
   windowOrientation?: string;
+  budgetPreference: BudgetPreference;
+  noisePreference: NoisePreference;
+  energyPreference: EnergyPreference;
+  installationConstraint: "standard" | "no_window_opening" | "no_outdoor_space" | "has_ceiling_space";
 };
 
 export function mapSunExposure(label: CalculatorFormState["sunLabel"]): SunExposure {
@@ -88,5 +102,25 @@ export function buildEngineInputs(form: CalculatorFormState): AirconLoadInputs {
       refrigerator: form.hasKitchen ? 1 : 0,
       microwave: form.hasKitchen ? 1 : 0,
     },
+  };
+}
+
+export function buildRecommendationPreferences(
+  form: CalculatorFormState,
+): RecommendationPreferences {
+  return {
+    budget: form.budgetPreference,
+    noise: form.noisePreference,
+    energy: form.energyPreference,
+  };
+}
+
+export function buildInstallationConstraints(
+  form: CalculatorFormState,
+): InstallationConstraints {
+  return {
+    hasWindowOpening: form.installationConstraint !== "no_window_opening",
+    hasOutdoorSpace: form.installationConstraint !== "no_outdoor_space",
+    hasCeilingSpace: form.installationConstraint === "has_ceiling_space",
   };
 }
